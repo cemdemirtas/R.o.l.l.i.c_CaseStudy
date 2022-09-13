@@ -14,15 +14,15 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    public void SceneChanger(int index)
-    {
-        SceneManager.LoadScene(index);
-    }
+    //public void SceneChanger(int index)
+    //{
+    //    SceneManager.LoadScene(index);
+    //}
 
-    public void SceneChanger(string name)
-    {
-        SceneManager.LoadScene(name);
-    }
+    //public void SceneChanger(string name)
+    //{
+    //    SceneManager.LoadScene(name);
+    //}
 
     // There is no quit button but this function is really necessary!
     public void Quit()

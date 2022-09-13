@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SaveAndLoadManager : MonoBehaviour
 {
-    private int levelNumber;
+    private int levelNumber=0;
 
     public static SaveAndLoadManager saveAndLoadManager;
     private void Awake()

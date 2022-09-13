@@ -58,6 +58,7 @@ public class UserInterfaceManager : MonoBehaviour
     }
     private void Start()
     {
+      
         currentLevelText.text = (SaveAndLoadManager.saveAndLoadManager.GetLevelNumber() + 1).ToString();
         nextLevelText.text = (SaveAndLoadManager.saveAndLoadManager.GetLevelNumber() + 2).ToString();
         GameManager.OnLevelCompleted += FinishGame;
@@ -144,8 +145,8 @@ public class UserInterfaceManager : MonoBehaviour
             showNextLevel();
             //Debug.Log("CantMove");
             Debug.Log("win");
-            SaveAndLoadManager.saveAndLoadManager.SaveGame(
-           (SaveAndLoadManager.saveAndLoadManager.GetLevelNumber() + 1));
+                SaveAndLoadManager.saveAndLoadManager.SaveGame(
+               (SaveAndLoadManager.saveAndLoadManager.GetLevelNumber() + 1));
         }
         else if (GameManager.gameState == GameManager.GameState.Failed)
         {

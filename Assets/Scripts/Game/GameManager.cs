@@ -2,12 +2,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    
-    public enum GameState { StartScreen, GamePlay, Failed, Complete,Win }
+    public Canvas canvas;
+    int dnm=0;
+    GameData saveData = new GameData();
+
+    public enum GameState { StartScreen, GamePlay, Failed, Complete, Win }
 
     public static Action OnLevelCompleted;
     public static Action OnLevelStarted;
@@ -15,7 +19,7 @@ public class GameManager : MonoBehaviour
     public static Action OnLevelNext;
     public static Action OnContinueLevel;
 
-   [SerializeField] public static GameState gameState;
+    [SerializeField] public static GameState gameState;
 
     private void OnEnable()
     {
@@ -24,10 +28,34 @@ public class GameManager : MonoBehaviour
         OnLevelCompleted += CompleteLevel;
         OnContinueLevel += ContinueLevel;
         OnLevelRestart += FailedLevel;
+        saveData = SaveSystem.instance.LoadGame();
+        //SceneManager.LoadScene(saveData.LevelIndex);
+
+
+
+        Debug.Log("LEVEL START"+ saveData._levelIndex);
+    }
+    public void gamestartbutton()
+    {
+        SceneManager.LoadScene(saveData.LevelIndex);
 
     }
+    private void Awake()
+    {
+
+        //SceneManager.LoadScene(asynSceneIndex);
+        //DontDestroyOnLoad(this);
+        //DontDestroyOnLoad(canvas);
+        //asynSceneIndex = SaveAndLoadManager.saveAndLoadManager.GetLevelNumber();
+    }
+    void Update()
+    {
+
+    }
+
     private void OnDisable()
     {
+
         OnLevelStarted -= StartLevel;
         OnLevelCompleted -= CompleteLevel;
         OnContinueLevel -= ContinueLevel;
@@ -38,7 +66,10 @@ public class GameManager : MonoBehaviour
 
     private void StartLevel()
     {
+
         gameState = GameState.GamePlay;
+
+
     }
 
     private void FailedLevel()
@@ -55,9 +86,45 @@ public class GameManager : MonoBehaviour
     private void ContinueLevel()
     {
         gameState = GameState.GamePlay;
-    } 
+
+    }
     private void CompleteLevel()
     {
         gameState = GameState.Complete;
     }
+    public void RestartButton()
+    {
+        SceneManager.UnloadSceneAsync(SaveAndLoadManager.saveAndLoadManager.GetLevelNumber());
+    }
+    public void NextLevelButton() //When the game finished, we get loop each levels to infinity
+    {
+        saveData._levelIndex += 1;
+
+
+        //if (SaveAndLoadManager.saveAndLoadManager.GetLevelNumber() > 3)
+        //{
+        //    SaveAndLoadManager.saveAndLoadManager.SaveGame(0);
+        //}
+
+        //SaveAndLoadManager.saveAndLoadManager.SaveGame(SaveAndLoadManager.saveAndLoadManager.GetLevelNumber()+1);
+
+        //SceneManager.LoadScene(SaveAndLoadManager.saveAndLoadManager.GetLevelNumber(),LoadSceneMode.Single);
+
+        //Debug.Log("INCREASED LEVEL:" + SaveAndLoadManager.saveAndLoadManager.GetLevelNumber());
+        //gameState = GameState.StartScreen;
+
+        if (saveData._levelIndex > 3)
+        {
+            saveData._levelIndex = 0;
+        }
+
+        SaveSystem.instance.SaveGame(saveData);
+
+        SceneManager.LoadScene(saveData._levelIndex, LoadSceneMode.Single);
+
+        Debug.Log("INCREASED LEVEL:" + saveData._levelIndex);
+        gameState = GameState.StartScreen;
+    }
+
+
 }
