@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 2724906631253393009}
   - component: {fileID: 2724906631253393008}
   m_Layer: 0
-  m_Name: CollectableLeaver
+  m_Name: RainBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -33,6 +33,12 @@ public class PlayerMovement : MonoBehaviour
     private bool canMove;
 
     public static PlayerMovement playerMovement;
+
+    public float VerticalSpeed { get => verticalSpeed; set => verticalSpeed = value; }
+    public float HorizontalSpeed { get => horizontalSpeed; set => horizontalSpeed = value; }
+    public float VerticalMoveSpeed { get => verticalMoveSpeed; set => verticalMoveSpeed = value; }
+    public float HorizontalMoveSpeed { get => horizontalMoveSpeed; set => horizontalMoveSpeed = value; }
+
     private void Awake()
     {
         if (playerMovement == null)

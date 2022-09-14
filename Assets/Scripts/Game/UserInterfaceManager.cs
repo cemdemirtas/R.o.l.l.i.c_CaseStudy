@@ -59,8 +59,8 @@ public class UserInterfaceManager : MonoBehaviour
     private void Start()
     {
       
-        currentLevelText.text = (SaveAndLoadManager.saveAndLoadManager.GetLevelNumber() + 1).ToString();
-        nextLevelText.text = (SaveAndLoadManager.saveAndLoadManager.GetLevelNumber() + 2).ToString();
+        currentLevelText.text = (SaveAndLoadManager.saveAndLoadManager.GetLevelNumber() ).ToString();
+        nextLevelText.text = (SaveAndLoadManager.saveAndLoadManager.GetLevelNumber() + 1).ToString();
         GameManager.OnLevelCompleted += FinishGame;
         GameManager.OnContinueLevel += OnGame;
         GameManager.OnLevelStarted?.Invoke();

@@ -8,7 +8,6 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public Canvas canvas;
-    int dnm=0;
     GameData saveData = new GameData();
 
     public enum GameState { StartScreen, GamePlay, Failed, Complete, Win }

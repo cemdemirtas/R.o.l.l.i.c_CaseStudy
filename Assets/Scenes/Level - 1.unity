@@ -2356,6 +2356,11 @@ PrefabInstance:
       propertyPath: fail
       value: 
       objectReference: {fileID: 1886147432}
+    - target: {fileID: 6083388722151670810, guid: b77c968040274bf468514805bfd0750e,
+        type: 3}
+      propertyPath: door
+      value: 
+      objectReference: {fileID: 6805152104934009653}
     - target: {fileID: 6083388722151670812, guid: b77c968040274bf468514805bfd0750e,
         type: 3}
       propertyPath: m_Enabled
@@ -4027,3 +4032,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 68c546a2109467e4697a8adc58a31d61, type: 3}
+--- !u!1 &6805152104934009653 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6805152105906014941, guid: 68c546a2109467e4697a8adc58a31d61,
+    type: 3}
+  m_PrefabInstance: {fileID: 6805152104934009652}
+  m_PrefabAsset: {fileID: 0}

@@ -10,7 +10,6 @@ public class GameData
     private int _score = 0;
     public int _levelIndex = 0;
     public static GameData instance;
-    //CarSelection carSelection=new CarSelection();
     private void Awake()
     {
         if (instance == null)
@@ -23,17 +22,6 @@ public class GameData
 
     public int Score { get => _score; set => _score = value; }
     public int LevelIndex { get => _levelIndex; set => _levelIndex = value; }
-
-    private void OnEnable()
-    {
-
-    }
-    public void IncreaseLevelIndex(int points)
-    {
-
-        _levelIndex += points;    
-        
-    }
 
 
     
