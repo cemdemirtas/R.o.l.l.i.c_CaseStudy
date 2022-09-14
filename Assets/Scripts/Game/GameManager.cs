@@ -94,24 +94,12 @@ public class GameManager : MonoBehaviour
     }
     public void RestartButton()
     {
-        SceneManager.UnloadSceneAsync(SaveAndLoadManager.saveAndLoadManager.GetLevelNumber());
+        SceneManager.LoadScene(saveData._levelIndex);
     }
     public void NextLevelButton() //When the game finished, we get loop each levels to infinity
     {
         saveData._levelIndex += 1;
 
-
-        //if (SaveAndLoadManager.saveAndLoadManager.GetLevelNumber() > 3)
-        //{
-        //    SaveAndLoadManager.saveAndLoadManager.SaveGame(0);
-        //}
-
-        //SaveAndLoadManager.saveAndLoadManager.SaveGame(SaveAndLoadManager.saveAndLoadManager.GetLevelNumber()+1);
-
-        //SceneManager.LoadScene(SaveAndLoadManager.saveAndLoadManager.GetLevelNumber(),LoadSceneMode.Single);
-
-        //Debug.Log("INCREASED LEVEL:" + SaveAndLoadManager.saveAndLoadManager.GetLevelNumber());
-        //gameState = GameState.StartScreen;
 
         if (saveData._levelIndex > 3)
         {
